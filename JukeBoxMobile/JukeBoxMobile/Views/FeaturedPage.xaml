@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JukeBoxMobile.Views.FeaturedPage" 
+            xmlns:Controls="clr-namespace:JukeBoxMobile.Layout;assembly=HorizontalList"
+          
+           
+             x:Name="BrowseFeaturedPage"
+             BackgroundColor="#232323">
+    <Grid Padding="10">
+       
+        <ListView SeparatorVisibility="Default" ItemsSource="{Binding Music}" HasUnevenRows="True" HorizontalOptions="Fill">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <Grid x:Name="gridLayout" Padding="5,0,5,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="0"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapped_ViewMusic"/>
+                            </StackLayout.GestureRecognizers>
+                            <Frame  Padding="1" BackgroundColor="White" HasShadow="True" OutlineColor="#bbb" BindingContext="{Binding Item1}"  >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Frame BackgroundColor="White"  HasShadow="False" Padding="0" Margin="0" >
+                                        <Image Source="{Binding CollectionImage}" Aspect="AspectFill"
+                           HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                    </Frame>
+                                       
+                                    <StackLayout Grid.Row="1" Padding="5,0,5,5" Spacing="2">
+
+                                        <Label Text="{Binding CollectionArtistName}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" LineBreakMode="TailTruncation" 
+                           TextColor="Black" FontAttributes="Bold"/>
+                                        <Label Text="{Binding CollectionTitle}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" LineBreakMode="TailTruncation"
+                           TextColor="Bisque"/>
+                                        <Label Text="{Binding CollectionPrice}" FontSize="12" TextColor="Black" HorizontalOptions="Center"  VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                            <Frame Grid.Column="2"  Padding="1" BackgroundColor="White" HasShadow="True" OutlineColor="#bbb" BindingContext="{Binding Item2}"  >
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Frame BackgroundColor="White"  HasShadow="False" Padding="0" Margin="0" >
+                                        <Image Source="{Binding CollectionImage}" Aspect="AspectFill"
+                           HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                                    </Frame>
+
+                                    <StackLayout Grid.Row="1" Padding="5,0,5,5" Spacing="2">
+
+                                        <Label Text="{Binding CollectionArtistName}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="16" LineBreakMode="TailTruncation" 
+                           TextColor="Black" FontAttributes="Bold"/>
+                                        <Label Text="{Binding CollectionTitle}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="12" LineBreakMode="TailTruncation"
+                           TextColor="Bisque"/>
+                                        <Label Text="{Binding CollectionPrice}" FontSize="12" TextColor="Black" HorizontalOptions="Center"  VerticalOptions="Center" LineBreakMode="TailTruncation"/>
+                                  
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>
